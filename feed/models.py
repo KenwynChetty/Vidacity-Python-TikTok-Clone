@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class Post(models.Model):
 	description = models.CharField(max_length=255, blank=True)
-	files = models.FileField(upload_to='posts')
+	files = models.FileField(upload_to='posts_video')
 	date_posted = models.DateTimeField(default=timezone.now)
 	usernames = models.ForeignKey(User, on_delete=models.CASCADE)
 	tags = models.CharField(max_length=100, blank=True)
