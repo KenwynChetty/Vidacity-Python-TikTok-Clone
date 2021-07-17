@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/upload.css'%}">
+<style>
+
+canvas{
+  background-image: url("{% static 'img/uploadbg.png' %}");
+  background-size: cover;
+  background-position: center;
+  top:-65px;
+}
+textarea{
+    background-color: white;
+    border-radius: 0px;
+}
+.input-container{
+    border-radius: 0px;
+}
+.input{
+    border-radius: 0px;
+}
+.reg-form{
+    min-height: 600px;
+}
+.tags-container{
+    margin: 5px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+.btn{
+    border-radius: 5px;
+    font-family: Montserrat;
+}
+</style>
+<form method="POST"class="reg-form"action="" enctype="multipart/form-data"style="max-width:500px;margin:auto" >
+{% csrf_token %}
+<label for="input-tag">
+  <div class="inputField">
+    {{form.files}}
+  </div>
+  <div class="file-upload">
+    
+  </div>
+</lable>
+<video id="video1" autoplay="autoplay" controls width="500px" loop>
+  <source id="video-source" src="splashVideo">
+</video>
+<canvas id="myCanvas" style=" z-index:-100px;"></canvas>
+
+<div class="tags-container ">
+    {{form.tags}}
+</div>
+
+<div class="input-container">
+{{form.description}}
+</div>
+  <div class="wrapper" style="margin-top:-50px; margin-right:20px;">
+  <button type="submit" class="btn">Share</button>
+  </div>
+</form>
+<script  src="{% static 'js/upload.js'%}"></script>
+{% endblock content %}

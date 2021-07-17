@@ -1,0 +1,38 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %} KFCI | ADMIN {% endblock %}
+
+{% block extrastyle %}
+<meta name="theme-color" content="#000000">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#000000">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+<link rel="shortcut icon" href="{% static 'img/kfci_logo.png' %}" type="image/x-icon">
+<style>
+    body {
+        background-image: url("https://wallpapercave.com/wp/wp3241844.jpg") !important;
+        height: 100% no-repeat;
+        width: 100% no-repeat;
+    }
+
+    .module h2,
+    .module caption,
+    .inline-group h2 {
+        font-size: 20px;
+    }
+    #header{
+        background-color: black;
+    }
+    caption{
+        font-family: cookie;
+    }
+</style>
+{% endblock %}
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'home' %}"><img src="{% static 'img/kfci_logo.png' %}" width="125" height="125"></a></h1>
+{% endblock %}
+
+{% block nav-global %} KFCI ADMIN{% endblock nav-global %}

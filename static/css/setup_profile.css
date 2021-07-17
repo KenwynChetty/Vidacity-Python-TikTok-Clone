@@ -1,0 +1,123 @@
+body {font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+   
+  }
+  h1{
+    font-family: Courier; 
+    color: blue;
+  }
+  canvas {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 255, 255);
+    z-index: -1;
+  
+  }
+  .inputField{
+    display: none;
+  }
+  
+  #document-upload {
+    position: absolute;
+    opacity: 0;
+  }
+  #document-upload:focus + .file-upload {
+    background: #000;
+  }
+  
+  .file-upload {
+    height: 30px;
+    position: relative;
+    width: 30px;
+    background: rgb(33, 33, 33);
+    color: rgb(255, 255, 255);
+    font-family: "Roboto";
+    border-radius: 50%;
+    line-height: 30px;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 265px;
+    margin-top: -45px;
+    padding: 0;
+    z-index: 1;
+  }
+  @media (max-width:600px){
+    .file-upload{
+      margin-left: 190px;
+    }
+  }
+  * {box-sizing: border-box;}
+  
+  .reg-form{
+   border-radius: 15px;
+   min-height:600px;
+  }
+  
+  .input-container {
+   display: -ms-flexbox; /* IE10 */
+   display: flex;
+   width: 100%;
+   margin-bottom: 15px;
+   padding-right: 5px;
+   padding-left: 5px;
+  
+  }
+  
+  input{
+   border-radius: 15px;
+  }
+  
+  input {
+   width: 100%;
+   padding: 10px;
+   outline: none;
+   text-decoration: none;
+  }
+  
+  input:focus {
+   border: 2px solid dodgerblue;
+  }
+  
+  /* Set a style for the submit button */
+  .wrapper{
+  text-align: center;
+  }
+  .btn {
+   background-color: dodgerblue;
+   color: white;
+   padding: 15px 20px;
+   cursor: pointer;
+   opacity: 0.9;
+   margin-bottom: 5px;
+   font-family: Lobster;
+   border-radius: 25px;
+   width: 200px;
+  }
+  
+  .btn:hover {
+   opacity: 1;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    text-decoration: none;
+ }
+ 
+ .form-group {
+     border:none;
+
+ }
+
+  .inputField{
+    display:none;
+  }
+canvas{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{% static 'css/setup_profile.css' %}">
+</head>
+<body style="background: white;">
+
+<form method="POST"class="reg-form"action="" enctype="multipart/form-data"style="max-width:500px;margin:auto" >
+  {% csrf_token %}
+    <fieldset class="form-group" >
+    <div style=" text-align: center;">
+      <canvas id = "can" style="background-image: url('{{ user.profile.image.url}}'); border: 2px solid rgb(0, 0, 0);"></canvas>
+      <label for="document-upload">
+      <div class="inputField">
+        {{pform.image}}
+      </div>
+      <div class="file-upload">
+      +
+      </div>
+      </label>
+    </div>
+    <br>
+    <label style='padding-left:10px; color: black;'>Birth Date:</label>
+    <div class="input-container">
+        {{pform.birth_date}}
+    </div>
+    <label style='padding-left:10px; color: black;'>Age:</label>
+    <div class="input-container">
+        {{pform.age}}
+    </div>
+    <label style='padding-left:10px; color: black;'>Relationship:</label>
+    <div class="input-container">
+        {{pform.relationship}}
+    </div>
+    <label style='padding-left:10px; color: black;'>Location:</label>
+    <div class="input-container">
+        {{pform.location}}
+    </div>
+    <label style='padding-left:10px; color: black;'>Bio:</label>
+    <div class="input-container">
+        {{pform.bio}}
+    </div>
+    <label style='padding-left:10px; color: black;'>Cell Number:</label>
+    <div class="input-container">
+        {{pform.contact}}
+    </div>
+    </fieldset>
+  <div class="wrapper">
+  <button type="submit" class="btn">Save Profile</button>
+  </div>
+</form>
+<script src="{% static 'js/profile_setup.js' %}"></script>
+<script src = "https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+
+</body>
+</html>

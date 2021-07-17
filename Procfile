@@ -1,0 +1,1 @@
+web: gunicorn vidacity.wsgi --timeout 15000 --log-file -
