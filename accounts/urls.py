@@ -11,7 +11,6 @@ urlpatterns = [
     path('', views.loginPage, name="login"),
     path('new_chat/', views.UserChatList, name='users_chat_list'),
     path('profile-setup/',views.setup_profile, name='setup_profile'),
-    path('like/', views.like, name='like'),
     path('logout/', views.logoutUser, name='logout'),
     path('profile/', views.profile, name='profile')
 ]

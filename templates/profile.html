@@ -1,14 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block title %} PROFILE {% endblock title %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/profile_layout.css'%}">
-
+<style>
+  .card{
+    margin-top: 50px;
+  }
+  body{
+    background-color: white;
+  }
+@media screen and (max-width:360px) {
+  #contact{
+    max-width: 360px !important;
+  }
+}
+#contact{ 
+    max-width: 411px !important;
+  }
+main{max-width: 100%;}
+#ap-nav-icon-bar a{
+  margin-top: 0;
+}
+.fa-home{
+  font-size: 37px !important;
+  margin-top: 5px;
+}
+</style>
 <div class="card" data-state="#about">
     <div class="card-header">
       <div class="card-cover" style="background-image: url('{{user.profile.image.url}}')"></div>
       <img class="card-avatar" src="{{user.profile.image.url}}" alt="avatar" />
-      <h1 class="card-fullname">Kenwyn Chetty</h1>
+      <h1 class="card-fullname">{{user.first_name}} {{user.last_name}}</h1>
       <h2 class="card-jobtitle">@{{user.username}}</h2>
     </div>
     <div class="card-main">
@@ -29,13 +52,13 @@
                     {%  if user_profile != None %}
                     <div class="col-6">
                         <h3 class="white-important follow-click">
-                            <a onclick="location.href='/user/<str:username>/followers'">
+                            <a >
                                 {{ user_profile.profile.followers }}
                             </a>
                         </h3>
                     </div>
                     <div class="col-6">
-                        <a onclick="location.href='/user/<str:username>/follows'">
+                        <a>
                             <h3 class="white-important follow-click">
                                 {{ user_profile.profile.following }}
                             </h3>
@@ -43,14 +66,14 @@
                     </div>
                     {% else %}
                     <div class="col-6">
-                        <a onclick="location.href='/user/<str:username>/followers'">
+                        <a >
                             <h3 class="white-important follow-click">
                                 {{ user.profile.followers }}
                             </h3>
                         </a>
                     </div>
 
-                    <a onclick="location.href='/user/<str:username>/follows'">
+                    <a >
                         <div class="col-6">
                             <h3 class="white-important follow-click left-pl">
                                 {{ user.profile.following }}

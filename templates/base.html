@@ -1,115 +1,124 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="mobile-web-app-capable" content="yes">
-  <title>KFCI</title>
-  <link rel="stylesheet" type="text/css" href ="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.6/css/normalize.min.css">
-  <link rel="stylesheet" type="text/css" href ="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.6/css/foundation.min.css">
+  <title>VIDACITY</title>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,300,700,100|Montserrat:400,700|Catamaran:400,100'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Cookie'>
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-  <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base_layout.css' %}">
+  <style>
+#ap-nav-icon-bar{
+ background-color: white;
+}
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 90%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: black;
+  font-size: 38px;
+  font-weight: bold;
+  padding-left: 310px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #ffffff;
+  color: white;
+}
+
+.modal-body {padding: 2px 5px;}
+
+
+.ics{
+  position: absolute;
+  margin-top: -65px;
+  left: 290px;
+  font-size: 28px;
+}
+.vsi{
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+  </style>
 
 </head>
-<body style="max-width: 500px;margin:auto; background: white;">
-
+<body>
+	<header>
+		<div id="maintitle" style="color: black;">{% block title %} VIDACITY {% endblock title %}</div>
+		<div id="settings"><i class="fa fa-gear" style="color: black;"></i></div>
+		<div id="settings-panel">
+		  <div id="close-settings-panel"><span></span></div>
+		  <div id="menu-user">
+			<div id="avatar" style="background-image: url('{{ user.profile.image.url }}');">
+			  <div id="settings-avatar">
+			  </div>
+			</div>
+			<div id="user-name">{{user.first_name}} {{user.last_name}}</div>
+			<ul>
+			  <li onclick="location.href='/profile-setup/'">Profile Settings</li>
+			  <li>User Settings</li>
+			  <li onclick="location.href='/logout/'">Logout</li>
+			</ul>
+		  </div>
+		</div>
+	  </header>
+	  <main>
 <!-- partial:index.partial.html -->
-<div id="stage-container" >
-  <header>
-    <nav>
-      <div id="hamburger"><span></span></div>
-      <div id="menu">
-        <ul id="primary-nav">
-          <li><a onclick="location.href='/feed/'"> Home</a></li>
-          <li><a onclick="location.href='/new_chat/'"> Chat</a></li>
-          <li><a href="#" data-section="s1"> Podcast</a></li>
-          <li><a onclick="location.href='/feed/upload/'"> Upload Video</a></li>
-          <li><a onclick="location.href='/feed/most-liked/'"> Most Liked Video's</a></li>
-          <li><a onclick="location.href='http://ampv1.herokuapp.com/'"> Ampelou Christian Platform</a></li>
-        </ul>
-        <ul id="social-btns">
-          <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
-          <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
-          <li><i class="fa fa-linkedin" aria-hidden="true"></i></li>
-        </ul>
-      </div>
-    </nav>
-    <div id="maintitle" style="color: black;">KFCI</div>
-    <div id="search-bar">
-      <a onclick="location.href='/new_chat/'"><i class="fa fa-envelope"></i></a>
-    </div>
-    <div id="settings"><i class="fa fa-gear" style="color: black;"></i></div>
-    <div id="settings-panel">
-      <div id="close-settings-panel"><span></span></div>
-      <div id="menu-user">
-        <div id="avatar" style="background-image: url('{{ user.profile.image.url }}');">
-          <div id="settings-avatar">
-          </div>
-        </div>
-        <div id="user-name">{{user.first_name}} {{user.last_name}}</div>
-        <ul>
-          <li onclick="location.href='/profile-setup/'">Profile Settings</li>
-          <li>User Settings</li>
-          <li onclick="location.href='/logout/'">Logout</li>
-        </ul>
-      </div>
-    </div>
-  </header>
-  <main>
-    <section id="s1" class="active">
-      {% block content %}
-      {% endblock content %}
-    </section>
-  </main>
+{% block content %}
+{% endblock content %}
+</main>
 
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <a class="close" onclick="document.location.reload(true)">&times;</a>
-      <div style="text-align: center;">
-      <img src="{% static 'img/Vidacity_Logo.png' %}" style="width: 100px; height:100px; margin-top: -40px;">
-    </div>
-    </div>
-    <div class="modal-body">
-      <form action="{% url 'search_posts' %}" method="post">{% csrf_token %}
-        <div class="search-container">
-          <div class="search">
-            <input required name="search" type="text" id="vsi" placeholder="Search Video's">
-            <button type="submit" class="ics" style="border:0; background: transparent;"><i class="fa fa-search" style="color: black;"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+<div id="ap-nav-icon-bar">
 
+  <li><a onclick="location.href='/feed/'"><i class="fa fa-home" style="font-size:35px"></i></a></li> 
+  <li>
+	<a onclick="location.href='/feed/discover/'">
+	<i class="fa fa-search" style="font-size: 30px;"></i>
+	</a>
+  </li>
+  <li><a onclick="location.href='/feed/upload/'"><i class="fa fa-plus-square"></i></a></li>
+  <li><a onclick="location.href='/new_chat/'"><i class="fa fa-comments"></i></a></li>
+  <li><a onclick="location.href='/profile/'"><i class="fa fa-user-circle-o"></i></a></li>
 </div>
-  <footer>
-  <div id="ap-nav-icon-bar">
-      <li>
-      <a id="myBtn">
-      <i class="fa fa-search" style="font-size: 30px;"></i>
-      </a>
-    </li>
-    <li><a onclick="location.href='/feed/'"><i class="fa fa-home" style="font-size:35px"></i></a></li> 
-    <li><a onclick="location.href='/feed/upload/'"><i class="fa fa-plus-square"></i></a></li>
-    <li><a onclick="location.href='/feed/most-liked/'"><i class="fa fa-heart"></i></a></li>
-    <li><a onclick="location.href='/profile/'"><i class="fa fa-user-circle"></i></a></li>
-  </div>
-</footer>
-</div>
-
 <!-- partial -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script  src="{% static 'js/layout.js' %}"></script>
-  <script  src="{% static 'js/base_search_modal.js' %}"></script>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src='{% static "js/base_settings.js" %}'></script>
 </html>

@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a+i3he7qo$g7kq8fq-vu$(u1p4)2y^o-3z+lvs0h0s*ir^y338'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['kfci.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -90,10 +90,10 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dc12spqp95bmvk',
-        'USER': 'kycuglltusqbjq',
-        'PASSWORD': '0129a98adf08ddc9937ce6733377ed56d216acfb5c99c8e373f20068007fdf93',
-        'HOST': 'ec2-52-202-152-4.compute-1.amazonaws.com',
+        'NAME': 'd1869hd7c44smk',
+        'USER': 'wvygucnyemeqbh',
+        'PASSWORD': 'd1968e53006fa9a3928bffb8d533e8bf64abd3e4565804c178cda62f67021f38',
+        'HOST': 'ec2-3-226-134-153.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -144,9 +144,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = '/'
 
-AWS_ACCESS_KEY_ID = 'AKIAQ6GA3SC6SHUTYXVD'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'vidacity'
+AWS_ACCESS_KEY_ID = 'AKIAQ6GA3SC6XALDSBG4'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'vdct'
 AWS_S3_SIGNATURE_VERSION = "s3v4"
 AWS_S3_REGION_NAME = "us-east-2"
 

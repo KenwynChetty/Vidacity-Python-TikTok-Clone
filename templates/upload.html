@@ -1,6 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
-
+{% block title %} UPLOAD {% endblock title %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/upload.css'%}">
 <style>
@@ -14,12 +14,21 @@ canvas{
 textarea{
     background-color: white;
     border-radius: 0px;
+    box-shadow: 0px 0px 4px 1px black;
+    font-family: cookie;
+    font-size: 16px;
+    
 }
 .input-container{
     border-radius: 0px;
 }
 .input{
     border-radius: 0px;
+}
+#id_tags{
+  width: 100%;
+  box-shadow: 0px 0px 2px 0.5px black;
+  padding: 7px;
 }
 .reg-form{
     min-height: 600px;
@@ -32,6 +41,9 @@ textarea{
 .btn{
     border-radius: 5px;
     font-family: Montserrat;
+}
+.reg-form{
+  margin-top: 50px !important;
 }
 </style>
 <form method="POST"class="reg-form"action="" enctype="multipart/form-data"style="max-width:500px;margin:auto" >

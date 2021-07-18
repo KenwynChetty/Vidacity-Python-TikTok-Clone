@@ -4,29 +4,33 @@
 <head>
 <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="icon" type="image/png" style="width: 200px; height: 200px;"href="{% static 'img/kfci_logo.png' %}">
-<link rel="shortcut icon" type="image/png" style="width: 200px; height: 200px;" href="{% static 'img/kfci_logo.png' %}">
-<link rel="shortcut icon" type="image/x-icon" style="width: 200px; height: 200px;" href="{% static 'img/kfci_logo.png' %}">
+<link rel="icon" type="image/png" style="width: 200px; height: 200px;"href="{% static 'img/vidacity.png' %}">
+<link rel="shortcut icon" type="image/png" style="width: 200px; height: 200px;" href="{% static 'img/vidacity.png' %}">
+<link rel="shortcut icon" type="image/x-icon" style="width: 200px; height: 200px;" href="{% static 'img/vidacity.png' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
-<title>KINGDOM FAITH CONNECTION INTERNATIONAL</title>
+<title>VIDACITY</title>
 </head>
 <body style="background:white;">
 <div  style="max-width:500px;margin:auto">
 <form action="" method="POST">
-  <div style="text-align: center; "> <img src="{% static 'img/kfci_logo.png' %}" style="width: 250px; height: auto;"></div>
-  <h2 style="color: black; margin-top: -10px;">Login Form</h2>
+  <div style="text-align: center; "> 
+    <video autoplay loop muted style="width:250px">
+      <source src="{% static 'img/v.mp4'%}" type="video/mp4">
+    </video>
+  </div>
+  <h2 style="color: black; margin-top: 10px;">Login Form</h2>
   {%csrf_token%}
 
   
   <div class="input-container">
-    <i class="fa fa-user icon"></i>
+    <i class="fa fa-user icon" style="background-color: rgb(189, 0, 66);"></i>
     <input class="input-field" type="text" placeholder="Username" name="username">
   </div>
   
   <div class="input-container">
-    <i class="fa fa-key icon"></i>
+    <i class="fa fa-key icon" style="background-color: rgb(189, 0, 66);"></i>
     <input class="input-field" type="password" placeholder="Password" name="password">
   </div>  
 

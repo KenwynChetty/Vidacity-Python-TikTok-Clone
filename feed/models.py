@@ -9,9 +9,6 @@ class Post(models.Model):
 	date_posted = models.DateTimeField(default=timezone.now)
 	usernames = models.ForeignKey(User, on_delete=models.CASCADE)
 	tags = models.CharField(max_length=100, blank=True)
-	likes = models.ManyToManyField(
-        User, related_name='like', default=None, blank=True)
-	like_count = models.BigIntegerField(default='0')
 
 	def __str__(self):
 		return self.description
@@ -26,3 +23,7 @@ class Comments(models.Model):
 	username = models.ForeignKey(User, related_name='details', on_delete=models.CASCADE)
 	comment = models.CharField(max_length=255)
 	comment_date = models.DateTimeField(default=timezone.now)
+
+class Like(models.Model):
+	user = models.ForeignKey(User, related_name='likes', on_delete=models.CASCADE)
+	post = models.ForeignKey(Post, related_name='likes', on_delete=models.CASCADE)	
