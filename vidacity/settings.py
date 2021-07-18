@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'a+i3he7qo$g7kq8fq-vu$(u1p4)2y^o-3z+lvs0h0s*ir^y338'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vidacity.herokuapp.com']
 
 
 # Application definition
