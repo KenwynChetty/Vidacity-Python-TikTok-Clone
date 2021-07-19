@@ -26,6 +26,47 @@ main{max-width: 100%;}
   font-size: 37px !important;
   margin-top: 5px;
 }
+.post-row{
+  display:-ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  position: absolute;
+  padding-bottom: 50px;
+  background-color: rgb(255, 255, 255);
+  text-align: center !important;
+  max-width: 100%;
+}
+video{
+ width: 100wh;
+ height: 34vh;
+ text-align: center !important;
+ align-items: center !important;
+ overflow: hidden;
+ margin: auto !important;
+ position: relative;
+ background-size: inherit;
+ justify-items: center !important;
+ align-content: center !important;
+}
+.post-col{
+  -ms-flex: 33.33%;
+    flex: 33.33%;
+    max-width: 33.33%;
+    padding: 0;
+    text-align: center !important;
+ align-items: center !important;
+}
+.post-card{
+  background: #ffffff;
+    overflow: hidden;
+    position: relative;
+    max-width: 100% !important;
+    opacity: 1;
+    max-height: 249px !important;
+    justify-content: stretch !important;
+    align-items: stretch !important;
+}
 </style>
 <div class="card" data-state="#about">
     <div class="card-header">
@@ -113,6 +154,19 @@ main{max-width: 100%;}
         <button data-section="#contact">CONTACT</button>
       </div>
     </div>
+  </div>
+  <div class="post-row">
+    
+      {% for post in posts %}
+      <div class="post-col">
+      <div class="post-card" style="text-align: center;">
+        <video muted style="text-align: center; background-position: center;" >
+          <source src="{{post.files.url}}" type="video/mp4">
+        </video>
+      </div>
+    </div>
+      {% endfor %}
+
   </div>
   <script src="{% static 'js/profile.js' %}"></script>
 {% endblock content %}
